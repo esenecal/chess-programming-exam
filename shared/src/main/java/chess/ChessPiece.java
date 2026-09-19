@@ -1,5 +1,6 @@
 package chess;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -53,8 +54,61 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
-        throw new RuntimeException("Not implemented");
+        ChessPiece piece = board.getPiece(myPosition);
+        switch(piece.getPieceType()) {
+            case PieceType.BISHOP:
+                return bishopMoves(board, myPosition, piece);
+            case PieceType.KING:
+                return kingMoves(board, myPosition, piece);
+            case PieceType.KNIGHT:
+                return knightMoves(board, myPosition, piece);
+            case PieceType.PAWN:
+                return pawnMoves(board, myPosition, piece);
+            case PieceType.QUEEN:
+                return queenMoves(board, myPosition, piece);
+            case PieceType.ROOK:
+                return rookMoves(board, myPosition, piece);
+            default:
+                return null;
+        }
     }
+
+    private static ArrayList<ChessMove> bishopMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
+    private static ArrayList<ChessMove> kingMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
+    private static ArrayList<ChessMove> knightMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
+    private static ArrayList<ChessMove> pawnMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
+    private static ArrayList<ChessMove> queenMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
+    private static ArrayList<ChessMove> rookMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
+        ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        return validMoves;
+    }
+
 
     // Created by IntelliJ
     @Override
