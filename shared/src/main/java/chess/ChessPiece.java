@@ -76,6 +76,70 @@ public class ChessPiece {
     private static ArrayList<ChessMove> bishopMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
         ArrayList<ChessMove> validMoves = new ArrayList<>();
 
+        // upper right
+        for (int y = startPosition.getRow()+1, x = startPosition.getColumn()+1; y < 9 && x < 9; y++, x++) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // lower right
+        for (int y = startPosition.getRow()-1, x = startPosition.getColumn()+1; y > 0 && x < 9; y--, x++) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // lower left
+        for (int y = startPosition.getRow()-1, x = startPosition.getColumn()-1; y > 0 && x > 0; y--, x--) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // upper left
+        for (int y = startPosition.getRow()+1, x = startPosition.getColumn()-1; y < 9 && x > 0; y++, x--) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
         return validMoves;
     }
 
@@ -105,6 +169,70 @@ public class ChessPiece {
 
     private static ArrayList<ChessMove> rookMoves(ChessBoard board, ChessPosition startPosition, ChessPiece piece) {
         ArrayList<ChessMove> validMoves = new ArrayList<>();
+
+        // upper right
+        for (int y = startPosition.getRow()+1, x = startPosition.getColumn()+1; y < 9 && x < 9; y++, x++) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // lower right
+        for (int y = startPosition.getRow()-1, x = startPosition.getColumn()+1; y > 0 && x < 9; y--, x++) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // lower left
+        for (int y = startPosition.getRow()-1, x = startPosition.getColumn()-1; y > 0 && x > 0; y--, x--) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
+
+        // upper left
+        for (int y = startPosition.getRow()+1, x = startPosition.getColumn()-1; y < 9 && x > 0; y++, x--) {
+            ChessPosition endPosition = new ChessPosition(y, x);
+            // if there is no piece at endPosition, valid.
+            if (board.getPiece(endPosition) == null) {
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+            } else if (board.getPiece(endPosition).getTeamColor() != piece.getTeamColor()) {
+                // if there is a piece and they are different colors, valid and break (capture)
+                validMoves.add(new ChessMove(startPosition, endPosition, null));
+                break;
+            } else {
+                // if there is a piece and they are the same colors, break.
+                break;
+            }
+        }
 
         return validMoves;
     }
