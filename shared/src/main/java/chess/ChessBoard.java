@@ -1,5 +1,8 @@
 package chess;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * A chessboard that can hold and rearrange chess pieces.
  * <p>
@@ -41,6 +44,79 @@ public class ChessBoard {
      * (How the game of chess normally starts)
      */
     public void resetBoard() {
-        throw new RuntimeException("Not implemented");
+        for (int y = 1; y < 9; y++) {       // clear the board.
+            for (int x = 1; x < 9; x++) {
+                addPiece(new ChessPosition(y, x), null);
+            }
+        }
+
+        // white pieces
+        int homeRow = 1;
+        ChessGame.TeamColor teamColor = ChessGame.TeamColor.WHITE;
+
+        // pawns
+        for (int y = 2, x = 1; x < 9; x++) {
+            addPiece(new ChessPosition(y, x), new ChessPiece(teamColor, ChessPiece.PieceType.PAWN));
+        }
+
+        // rook
+        addPiece(new ChessPosition(homeRow, 1), new ChessPiece(teamColor, ChessPiece.PieceType.ROOK));
+        addPiece(new ChessPosition(homeRow, 8), new ChessPiece(teamColor, ChessPiece.PieceType.ROOK));
+
+        // knight
+        addPiece(new ChessPosition(homeRow, 2), new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT));
+        addPiece(new ChessPosition(homeRow, 7), new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT));
+
+        // bishop
+        addPiece(new ChessPosition(homeRow, 3), new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP));
+        addPiece(new ChessPosition(homeRow, 6), new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP));
+
+        // queen
+        addPiece(new ChessPosition(homeRow, 4), new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN));
+
+        // king
+        addPiece(new ChessPosition(homeRow, 5), new ChessPiece(teamColor, ChessPiece.PieceType.KING));
+
+        // black pieces
+        homeRow = 8;
+        teamColor = ChessGame.TeamColor.BLACK;
+
+        // pawns
+        for (int y = 7, x = 1; x < 9; x++) {
+            addPiece(new ChessPosition(y, x), new ChessPiece(teamColor, ChessPiece.PieceType.PAWN));
+        }
+
+        // rook
+        addPiece(new ChessPosition(homeRow, 1), new ChessPiece(teamColor, ChessPiece.PieceType.ROOK));
+        addPiece(new ChessPosition(homeRow, 8), new ChessPiece(teamColor, ChessPiece.PieceType.ROOK));
+
+        // knight
+        addPiece(new ChessPosition(homeRow, 2), new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT));
+        addPiece(new ChessPosition(homeRow, 7), new ChessPiece(teamColor, ChessPiece.PieceType.KNIGHT));
+
+        // bishop
+        addPiece(new ChessPosition(homeRow, 3), new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP));
+        addPiece(new ChessPosition(homeRow, 6), new ChessPiece(teamColor, ChessPiece.PieceType.BISHOP));
+
+        // queen
+        addPiece(new ChessPosition(homeRow, 4), new ChessPiece(teamColor, ChessPiece.PieceType.QUEEN));
+
+        // king
+        addPiece(new ChessPosition(homeRow, 5), new ChessPiece(teamColor, ChessPiece.PieceType.KING));
+    }
+
+    // Created with IntelliJ
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ChessBoard that)) {
+            return false;
+        }
+        return Objects.deepEquals(board, that.board);
+    }
+
+    // Created with IntelliJ
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(board);
     }
 }
